@@ -3,6 +3,13 @@
 Created on Mon Mar 06 14:38:31 2017
 
 @author: Amin
+
+Input:
+   List1: 10->15->4->20
+   lsit2:  8->4->2->10
+Output:
+   Intersection List: 4->10
+   Union List: 2->8->20->4->15->10
 """
 
 class Node(object):
