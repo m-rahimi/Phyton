@@ -9,6 +9,7 @@ Created on Wed Mar 08 15:47:55 2017
  
 # Returns the maximum value that can be put in a knapsack of
 # capacity W
+# 2^n complexity
 def knapSack(W , wt , val , n):
  
     # Base Case
@@ -93,40 +94,6 @@ c = [3, 4]
 a.append(c)
 d = [1, 3, 5]
 a.append(d)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-if a:
-     print "not empty"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def knapSack(W, wt, val, m, n, indx):
     if n == m:
