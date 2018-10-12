@@ -12,3 +12,5 @@ def multi_apply_func_on_series(df=None, func=None, key=None, n_jobs=4):
     p.close()
     p.join()
     return f_.values
+
+# https://www.kaggle.com/ogrellier/user-level-lightgbm-lb-1-4480/code
