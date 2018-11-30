@@ -28,31 +28,46 @@ def partition(arr,low,high):
     return pivot, i+1 
     
 def hindex(arr):
-    
+    hindex = 0
     lo = 0
     hi = len(arr) - 1
-    print(arr)
-    
-    print(lo, hi)
-    pivot, index = partition(arr, lo, hi)
-    print(arr)
-    print("PP", pivot, index)
-    
-    if pivot >= len(arr) - index:
-        hi = index - 1
-        h = index + 1
-    else:
-        lo = index + 1
-        h = 0
     
     
-    if pivot >= len(arr) - index and index == 0:
-        print("ll", len(arr))
-        return len(arr)
-    else:
-        print(lo, hi)
-        return hindex(arr[lo:hi+1]) + h
+    while True:
+#        print("LH", lo, hi)
+        pivot, index = partition(arr, lo, hi)
+#        print(arr)
+        hindex = len(arr) - index
+#        print("PIH", pivot, index, hindex)
+        if pivot > hindex:
+#            print("big")
+            hi = index - 1
+        elif pivot < hindex:
+#            print("small")
+            lo = index + 1
+        else:
+#            print("pivot=hindex")
+            print(arr)
+            return hindex
+            
+        if lo == hi:
+#            print("lo=hi")   
+            print(arr)
+            hindex = len(arr) - lo
+#            print(hindex, lo, arr[lo])
+            if arr[lo] >= hindex:
+#                print("C1")
+                return hindex
+            else:
+#                print("C2")
+                return hindex-1
+        # it is a condition if len(arr) <= min(arr)
+        if pivot >= len(arr) - index and index == 0:
+            return len(arr)
         
 arr = [8, 9, 5, 2, 1, 3, 9]
+hindex(arr)
+
+arr = [8, 7, 6, 5, 4, 3, 2, 1, 0, 1, 6]
 hindex(arr)
 
