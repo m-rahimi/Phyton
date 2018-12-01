@@ -28,39 +28,39 @@ def partition(arr,low,high):
     return pivot, i+1 
     
 def hindex(arr):
+  """
+  INPUT
+  arr : an array of citations
+  OUTPUT
+  h-index
+  """
     hindex = 0
     lo = 0
     hi = len(arr) - 1
     
     
     while True:
-#        print("LH", lo, hi)
+        # put the pivot in the correct location and spilit the array into two parts
         pivot, index = partition(arr, lo, hi)
-#        print(arr)
         hindex = len(arr) - index
-#        print("PIH", pivot, index, hindex)
+
         if pivot > hindex:
-#            print("big")
             hi = index - 1
         elif pivot < hindex:
-#            print("small")
             lo = index + 1
         else:
-#            print("pivot=hindex")
             print(arr)
             return hindex
             
+        # condition to stop the iteration
         if lo == hi:
-#            print("lo=hi")   
             print(arr)
             hindex = len(arr) - lo
-#            print(hindex, lo, arr[lo])
             if arr[lo] >= hindex:
-#                print("C1")
                 return hindex
             else:
-#                print("C2")
                 return hindex-1
+    
         # it is a condition if len(arr) <= min(arr)
         if pivot >= len(arr) - index and index == 0:
             return len(arr)
